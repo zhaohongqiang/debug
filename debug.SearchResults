@@ -1,0 +1,7 @@
+---- TDRgn_Create Matches (6 in 2 files) ----
+Tdrgn.c (comserv):TDRgn_Create()
+Tdrgn.c (comserv):	pAdd=TDRgn_Create();
+Tdrgn.c (comserv):	pAdd=TDRgn_Create();
+Tdrgn.c (comserv):	pt=TDRgn_Create();
+Tdrgn.c (comserv):	pTmp=TDRgn_Create();
+Tdrgn.h (comserv):TDM_COMSERVAPI	TDPRgn		TDRgn_Create();
