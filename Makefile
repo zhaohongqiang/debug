@@ -6,11 +6,7 @@ SRC := \
 	comserv/tdstr.c\
 	comserv/tdstring.c \
 	comserv/tdarray.c \
-	comserv/list.c \
-	tdevice/file.c\
-	tdevice/whxfile.c\
-	tdevice/whxsock.c\
-	tdevice/comctrl.c	
+	tdevice/file.c	
 export COMPILKIND += withthreads withdl
 USE_STD_LIB := 1
 RMCFLAGS += -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -g -W -I./include/

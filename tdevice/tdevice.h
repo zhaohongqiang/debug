@@ -22,14 +22,10 @@ extern	"C"{
 #include <net/if.h>
 
 #include "../comserv/comserv.h"
-#include "../platabs/platabs.h"
 #include "../js/tdmalloc.h"
 #include "../platabs/tcomdef.h"
 
 #include "file.h"
-#include "whxfile.h"
-#include "whxsock.h"
-//#include "tdimage.h"
 
 #ifdef		TDM_SI_CPLUSPLUS
 }

@@ -342,22 +342,6 @@ typedef enum TDColorMode{
 }TDColorMode;
 
 
-#ifdef XP_PC
-#ifdef _WIN32_WCE
-#define RESOURCEIMG(a) "http://192.168.0.7/"#a
-#else
-#define RESOURCEIMG(a) "http://192.168.0.7/"#a
-#endif
-#endif
-
-
-#ifdef XP_PC
-//#define WHX_NEW_ARCHITECH
-#ifdef _WIN32_WCE
-//#undef WHX_NEW_ARCHITECH
-#define TS_NO_DOUBLE 1
-#endif
-#endif
 
 #ifdef XP_UNIX
 //   #define WHX_NEW_ARCHITECH
@@ -367,70 +351,6 @@ typedef enum TDColorMode{
 #define HIWORD(a) ((TDWORD)((a>>16)&0xffff))
 
 
-#ifdef XP_ESS
-#define WHX_NEW_ARCHITECH 1
-#define TS_NO_DOUBLE 1
-#define RGB(r,g,b) (((r<<26)&0xff0000)|((g<<8)&0xff00)|(b&0xff))
-/*
-typedef  int size_t;
-*/
-  #endif
-#ifdef XP_CCUBE
-#define WHX_NEW_ARCHITECH 1
-#define TS_NO_DOUBLE 1
-#define RGB(r,g,b) (((r<<26)&0xff0000)|((g<<8)&0xff00)|(b&0xff))
-//#define LOWORD(a) ((TDWORD)(a&0xffff))
-//#define HIWORD(a) ((TDWORD)((a>>16)&0xffff))
-#include <vxworks.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <taskLib.h>
-#include <memLib.h>
-#include <assert.h>
-#include <string.h>
 
-#include "c-ware.h"
-#include "cwdefines.h"
-#include "cwinstances.h"
-#include "cwgfxdef.h"
-#include "cwdebug.h"
-
-#include "CComponent.h"
-#include "CPOBFactory.h"
-#include "CGFXCompositor.h"
-#include "CPictureObject.h"
-
-#include "basicsbfactory.h"
-#include "CDvdFrontEndController.h"
-#include "CDvdBackEndController.h"
-#include "CAtapiFrontEndController.h"
-
-#include "cl9315def.h"
-#include "ccpl.h"              // copy engine library
-
-/*****************/
-#if (BRD_TYPE == ATHENA1)
-    #include "C9315Capture.h"
-    #include "C9315Compositor.h"
-#elif (BRD_TYPE == ZIVA5MKI)
-    #include "CZ5Capture.h"
-    #include "CZ5Compositor.h"
-    #define CW_DEBUG_OPCODES    
-#elif (BRD_TYPE == SIREN)
-    #include "C9315Capture.h"
-    #include "C9315Compositor.h"
-#else
-# error invalid	BRD_TYPE!
-#endif // BRD_TYPE
-
-/*****************/
-#include "CDvdBackEndController.h"
-
-#include "sbfactory.h"
-#include "basicsbfactory.h"
-
-#include "utils.h"             /*dvd playback*/
-
-#endif
 #endif		/*TDM_SI_INCLUDED_TCOMDEF_H*/
 

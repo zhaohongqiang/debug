@@ -1,9 +1,9 @@
 #ifndef tdmem_h___
 #define tdmem_h___
 
-#include "../platabs/platabs.h"
 
 #define TDM_MALLOCVAPI
+#include "../platabs/tcomdef.h"
 
 
 extern 		void *	Malloc(TDUINT size);

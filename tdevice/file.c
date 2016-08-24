@@ -21,6 +21,60 @@ static TDBOOL gbinit=TDFALSE;
 int fFile;
 int	gDebugEnable = 1;
 
+TDPString  TDGetNetworkInfo(TDPCHAR info)
+{
+   	 FILE *fp;
+	 TDPString  reStr,tmpStr;
+	 TDBOOL bCreateTmpStr;
+	 TDINT i;
+	 TDCHAR *s;
+	 TDCHAR buffer[10000];
+
+	 fp = fopen("/etc/network","r");
+	 if(!fp)
+	 {
+		TDDebug(" /etc/network open error in info\n");
+		return TDNULL;
+	 }
+ 	 reStr = TDString_Create();
+  	 tmpStr=TDString_Create();
+
+	while(1)
+	{
+		s = fgets(buffer,sizeof(buffer) ,fp);
+	 	if(!s)
+			break;
+
+	 	TDString_Cut(tmpStr,0,tmpStr->mLength);
+   		for(i=0;i<strlen(s);i++)
+	 	{
+     			TDString_AppendChar(tmpStr,buffer[i]);
+
+	 	}
+	 	if(-1==TDString_FindPChar(tmpStr,info,TDTRUE))
+      			continue;
+
+   		else
+	 	{
+			TDINT start;
+  			start = TDString_FindPChar(tmpStr,"=",TDTRUE);
+   			if(start >0)
+			{
+				TDString_Cut(tmpStr,0,start+1);
+				TDString_AppendString(reStr,tmpStr,tmpStr->mLength);
+				TDString_StripWhitespace(reStr);
+				break;
+			}
+	 	}
+	}
+
+	 fclose(fp);
+ 	 TDString_Destroy(tmpStr);
+	 return reStr;
+}
+
+
+
 TDVOID TDDebugFunction(char * file,int  line,char * message)
 {
 	TDPString 	str;

@@ -1,21 +1,15 @@
 #ifndef		TDM_SI_INCLUDED_COMSERV_H
 #define		TDM_SI_INCLUDED_COMSERV_H
-#include "wlq.h"
-/*define dll interface macro*/
 
 #define TDM_COMSERVAPI extern
 
 
 #include	<stdio.h>
 #include	<stdlib.h>
-#include	<string.h>
-	
-#include	"../platabs/platabs.h"
+#include	<string.h>	
+
 #include	"../js/tdmalloc.h"
-#include "../platabs/tcomdef.h"
-#include	"retdef.h"
-#include	"comsnorm.h"
-#include    "list.h"
+#include 	"../platabs/tcomdef.h"
 #include	"tdarray.h"
 #include	"tdstr.h"
 #include	"tdstring.h"
